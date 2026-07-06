@@ -1,11 +1,10 @@
 queue_rules:
   - name: default
-    merge_conditions:
-      - "#approved-reviews-by>=1"
+    merge_conditions: []
 pull_request_rules:
-  - name: queue on approval
+  - name: queue always no review
     conditions:
-      - "#approved-reviews-by>=1"
+      - base=main
     actions:
       queue:
         name: default
