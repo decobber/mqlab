@@ -1,0 +1,13 @@
+queue_rules:
+  - name: default
+    merge_conditions:
+      - check-success=ci
+    batch_size: 1
+pull_request_rules:
+  - name: auto-queue when ci passes
+    conditions:
+      - check-success=ci
+      - base=main
+    actions:
+      queue:
+        name: default
